@@ -12,21 +12,56 @@
     <script>
         'use strict';
 
+        //Сложение 
+
+        function getSum(a, b) {
+            return a + b
+        }
+
+        //Вычетание
+
+        function getSubtraction(b, c) {
+            return b - c
+        }
+
+        // Деление
+
+        function getDivision(d, e) {
+            return d / e
+        }
+
+        //Умножение 
+
+        function getMultiplication(k, p) {
+            return k * p
+        }
+
+        /**
+         * Функция получает два числа и совершает над ними математические операции
+         * @param {number} arg1
+         * @param {number} arg2
+         * @param {string} operation может быть "сложение", "вычетание", "деление", "умножение"
+         * @throw {Error} если передана непредусмотренная операция
+         * @returns {number}
+         */
         function mathOperation(arg1, arg2, operation) {
-            switch (true) {
-                case operation == "сложение":
-                    return arg1 + arg2;
-                case operation == "вычетание":
-                    return arg1 - arg2;
-                case operation == "деление":
-                    return arg1 / arg2;
-                case operation == "умножение":
-                    return arg1 * arg2;
+            switch (operation) {
+                case "сложение":
+                    return getSum(arg1, arg2);
+                case "вычетание":
+                    return getSubtraction(arg1, arg2);
+                case "деление":
+                    return getDivision(arg1, arg2);
+                case "умножение":
+                    return getMultiplication(arg1, arg2);
+                default:
+                    throw new Error("Операция" + operation + "не предусмотрена");
             }
         }
 
+
         let result = mathOperation(5, 2, "умножение")
-        alert(result)
+        alert(result);
 
 
     </script>
