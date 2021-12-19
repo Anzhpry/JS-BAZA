@@ -45,14 +45,13 @@
             },
         ];
 
-        let photo = products.filter(function (item, index) {
-            if ("photos" in item && item.photos.length > 0)
-                return true;
+        let photo = products.filter(function (item) {
+            return "photos" in item && item.photos.length > 0;
         });
         console.log(photo);
 
-        const sortPrice = products.sort(function (priceMax, priceMin) {
-            return priceMax.price - priceMin.price;
+        const sortPrice = products.sort(function (product1, product2) {
+            return product1.price - product2.price;
 
         });
 
