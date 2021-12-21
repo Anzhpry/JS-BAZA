@@ -29,31 +29,19 @@ hundreds: 0, //это сотни
 необходимо выдать соответствующее сообщение с помощью console.log и вернуть пустой объект.*/
 
 
-        function numberToObject() {
-            let inputNumber = prompt("Введите число от 0 до 999: ");
-            let arrayNumber = inputNumber.split('');
-            let objectNumber = {};
-            objectNumber['units'] = +arrayNumber[2];
-            objectNumber['tens'] = +arrayNumber[1];
-            objectNumber['hundereds'] = +arrayNumber[0];
-            debugger;
-            if (arrayNumber.length == 3) {
-                return objectNumber;
-            } else if (arrayNumber.length > 3) {
-                console.log("Вы ввели число больше 999. Введите число от 0 до 999");
-                return objectNumber;
-
-            } else {
-
-
+        function getNumber(num) {
+            if (num > 999 || num < 0 || !Number.isInteger(num)) {
+                return console.log("Введите число в диапазоне [0, 999]!");
+                return {};
             }
-
+            return {
+                units: num % 10,
+                hundreds: Math.floor(num / 100),
+                tens: Math.floor(num / 10) % 10,
+            }
         }
 
-        let showNumberToObject = numberToObject();
-        console.log(showNumberToObject);
-
-
+        console.log(getNumber(745));
 
 
     </script>
